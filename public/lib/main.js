@@ -28,6 +28,7 @@ $(document).ready(function() {
         self._gallery = null;
         self.addSlides(imgs, false);
       }
+      self.stripLinks(imgs);
     });
     $(window).on('action:posts.loaded', function(evt, posts) {
       var imgs = document.querySelectorAll(self.sel +
@@ -35,7 +36,19 @@ $(document).ready(function() {
       if (imgs.length > 0) {
         self.addSlides(imgs, self.up);
       }
+      self.stripLinks(imgs);
     });
+  };
+  NBBGallery.prototype.stripLinks = function(imageElements) {
+    var insertPoint;
+    var img;
+    for (var i = imageElements.length - 1; i >= 0; i--) {
+      img = imageElements[i];
+      img.style.cursor = "pointer";
+      insertPoint = img.parentElement.parentElement;
+      img.parentElement.remove();
+      insertPoint.insertAdjacentElement('beforeend', img);
+    }
   };
   NBBGallery.prototype.reindexSlideElements = function() {
     var imgs = document.querySelectorAll(this.sel);
