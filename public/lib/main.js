@@ -38,6 +38,11 @@ $(document).ready(function() {
       }
       self.stripLinks(imgs);
     });
+    $(window).on('action:ajaxify.start', function(evt, data) {
+      if (self._gallery && self._gallery.slides.length > 0) {
+        self._gallery.close();
+      }
+    });
   };
   NBBGallery.prototype.stripLinks = function(imageElements) {
     var insertPoint;
@@ -48,7 +53,6 @@ $(document).ready(function() {
       insertPoint = img.parentElement.parentElement;
       img.parentElement.remove();
       insertPoint.parentElement.appendChild(img);
-      // insertPoint.insertAdjacentHTML('beforeend', img.outerHTML);
     }
   };
   NBBGallery.prototype.reindexSlideElements = function() {
