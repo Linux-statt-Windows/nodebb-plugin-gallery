@@ -47,7 +47,8 @@ $(document).ready(function() {
       img.style.cursor = "pointer";
       insertPoint = img.parentElement.parentElement;
       img.parentElement.remove();
-      insertPoint.insertAdjacentElement('beforeend', img);
+      insertPoint.parentElement.appendChild(img);
+      // insertPoint.insertAdjacentHTML('beforeend', img.outerHTML);
     }
   };
   NBBGallery.prototype.reindexSlideElements = function() {
