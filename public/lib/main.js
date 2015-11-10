@@ -45,15 +45,16 @@ $(document).ready(function() {
     });
   };
   NBBGallery.prototype.stripLinks = function(imageElements) {
-    var insertPoint;
-    var img;
-    for (var i = imageElements.length - 1; i >= 0; i--) {
-      img = imageElements[i];
-      img.style.cursor = "pointer";
-      insertPoint = img.parentElement.parentElement;
-      img.parentElement.remove();
-      insertPoint.parentElement.appendChild(img);
-    }
+    require(['components'], function(component) {
+      component.get('post').find('[component="post/content"] img:not(.emoji)').each(function() {
+      var $this = $(this);
+      if ($this.parent().is('a')) {
+        $this.addClass('img-gallery');
+        $this.unwrap();
+      }
+    });
+  });
+    
   };
   NBBGallery.prototype.reindexSlideElements = function() {
     var imgs = document.querySelectorAll(this.sel);
