@@ -3,10 +3,6 @@
 	"name": "NodeBB Lightbox Gallery Plugin",
 	"description": "This NodeBB plugin feeds all posted images into a lightbox gallery.",
 	"url": "https://github.com/psychobunny/nodebb-plugin-gallery",
-	"library": "./library.js",
-	"hooks": [
-
-	],
 	"staticDirs": {
 		"gallery": "./public",
 		"images": "./public/vendor/img"

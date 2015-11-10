@@ -45,15 +45,7 @@ $(document).ready(function() {
     });
   };
   NBBGallery.prototype.stripLinks = function(imageElements) {
-    var insertPoint;
-    var img;
-    for (var i = imageElements.length - 1; i >= 0; i--) {
-      img = imageElements[i];
-      img.style.cursor = "pointer";
-      insertPoint = img.parentElement.parentElement;
-      img.parentElement.remove();
-      insertPoint.parentElement.appendChild(img);
-    }
+    
   };
   NBBGallery.prototype.reindexSlideElements = function() {
     var imgs = document.querySelectorAll(this.sel);
