@@ -14,6 +14,7 @@
 		"./public/lib/main.js"
 	],
 	"css": [
-		"./public/vendor/css/blueimp-gallery.min.css"
+		"./public/vendor/css/blueimp-gallery.min.css",
+		"./public/css/gallery.css"
 	]
 }

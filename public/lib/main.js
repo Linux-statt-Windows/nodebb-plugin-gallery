@@ -45,6 +45,15 @@ $(document).ready(function() {
     });
   };
   NBBGallery.prototype.stripLinks = function(imageElements) {
+    require(['components'], function(component) {
+      component.get('post').find('[component="post/content"] img:not(.emoji)').each(function() {
+      var $this = $(this);
+      if ($this.parent().is('a')) {
+        $this.addClass('img-gallery');
+        $this.unwrap();
+      }
+    });
+  });
     
   };
   NBBGallery.prototype.reindexSlideElements = function() {
