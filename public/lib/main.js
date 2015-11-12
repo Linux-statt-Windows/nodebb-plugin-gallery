@@ -39,7 +39,7 @@ $(document).ready(function() {
       self.stripLinks(imgs);
     });
     $(window).on('action:ajaxify.start', function(evt, data) {
-      if (self._gallery && self._gallery.slides.length > 0) {
+      if (self._gallery && void 0 !== gallery.slides && self._gallery.slides.length > 0) {
         self._gallery.close();
       }
     });
